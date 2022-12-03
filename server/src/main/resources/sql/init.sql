@@ -1,4 +1,5 @@
 create database graph_site;
+drop table  if exists graph_site.ods_information_base;
 create table graph_site.ods_information_base(
     id varchar(64)  not null comment '主键唯一id',
     name  varchar(255) default null comment '名称',
@@ -22,6 +23,7 @@ create table graph_site.ods_information_base(
     KEY idx_ods_information_base_incr (insr) using btree
 )ENGINE=InnoDB,DEFAULT CHARSET=utf8mb4 COMMENT='基本信息表';
 
+drop table  if exists graph_site.ods_entity_person;
 create table graph_site.ods_entity_person(
     id varchar(64) not null comment '主键唯一id',
     name varchar(255) default null comment '名称',
@@ -55,7 +57,7 @@ create table graph_site.ods_entity_person(
     KEY idx_ods_entity_person_incr (insr) using btree
 )ENGINE=InnoDB,DEFAULT CHARSET=utf8mb4 COMMENT='人物实体信息';
 
-
+drop table  if exists graph_site.ods_entity_adrr;
 create table graph_site.ods_entity_adrr(
     id varchar(64) not null comment '主键唯一id',
     name varchar(255) default null comment '名称',
@@ -85,7 +87,7 @@ create table graph_site.ods_entity_adrr(
     KEY idx_ods_entity_adrr_incr (insr) using btree
 )ENGINE=InnoDB,DEFAULT CHARSET=utf8mb4 COMMENT='地址实体信息';
 
-
+drop table  if exists graph_site.ods_links_all;
 create table graphsite.ods_links_all(
     id varchar(64) not null comment '主键唯一id',
     name varchar(255) default null comment '名称',
