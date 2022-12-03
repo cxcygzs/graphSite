@@ -12,7 +12,7 @@ import java.util.Date;
  * 地址实体信息
  * {@code @TableName} ods_entity_adrr
  */
-@TableName(value ="ods_entity_adrr")
+@TableName(value ="ods_entity_addr")
 @Data
 public class OdsEntityAddr implements Serializable {
     /**
