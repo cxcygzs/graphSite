@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.RelationshipId;
+import org.springframework.data.neo4j.core.schema.RelationshipProperties;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 
 import java.io.Serializable;
@@ -14,8 +16,8 @@ import java.io.Serializable;
  **/
 @Getter
 @Setter
-public class AbstractEntity implements Serializable {
-    @Id
-    @GeneratedValue(generatorClass = UUIDStringGenerator.class)
-    private String id;
+@RelationshipProperties
+public abstract class AbstractRelationship implements Serializable {
+    @RelationshipId
+    private Long id;
 }

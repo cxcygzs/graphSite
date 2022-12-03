@@ -1,6 +1,6 @@
 package cn.graph.site.controller;
 
-import cn.graph.site.entity.Person;
+import cn.graph.site.entity.neo4j.entity.Person;
 import cn.graph.site.service.neo4j.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

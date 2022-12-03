@@ -1,6 +1,8 @@
 package cn.graph.site;
 
-import cn.graph.site.entity.Person;
+import cn.graph.site.entity.neo4j.entity.Person;
+import cn.graph.site.entity.neo4j.relationship.Husband;
+import cn.graph.site.service.neo4j.HusbandService;
 import cn.graph.site.service.neo4j.PersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -23,44 +25,27 @@ public class SiteApplication {
     }
 
     @Bean
-    CommandLineRunner demo(PersonService personService) {
+    CommandLineRunner demo(PersonService personService, HusbandService husbandService) {
         return args -> {
-
             personService.deleteAll();
+            Person a = new Person();
+            a.setName("a");
+            a.setAge(1);
 
-            Person greg = new Person("Greg");
-            Person roy = new Person("Roy");
-            Person craig = new Person("Craig");
 
-            List<Person> team = Arrays.asList(greg, roy, craig);
+            Person b = new Person();
+            b.setName("b");
+            b.setAge(2);
 
-            log.info("Before linking up with Neo4j...");
+            Husband husband = new Husband();
+            husband.setPerson(b);
 
-            team.stream().forEach(person -> log.info("\t" + person.toString()));
+            a.setHusband(husband);
+            personService.save(a);
+            personService.save(b);
 
-            personService.save(greg);
-            personService.save(roy);
-            personService.save(craig);
+            System.out.println(personService.findAllByHusbandName(husband.getName()));
 
-            greg = personService.findByName(greg.getName());
-            greg.worksWith(roy);
-            greg.worksWith(craig);
-            personService.save(greg);
-
-            roy = personService.findByName(roy.getName());
-            roy.worksWith(craig);
-            // We already know that roy works with greg
-            personService.save(roy);
-
-            // We already know craig works with roy and greg
-
-            log.info("Lookup each person by name...");
-            team.stream().forEach(person -> log.info(
-                    "\t" + personService.findByName(person.getName()).toString()));
-
-            List<Person> teammates = personService.findByTeammatesName(greg.getName());
-            log.info("The following have Greg as a teammate...");
-            teammates.stream().forEach(person -> log.info("\t" + person.getName()));
         };
     }
 
