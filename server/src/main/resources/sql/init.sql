@@ -1,7 +1,5 @@
-create database ods;
-create database dwd;
-create database dws;
-create table ods.ods_information_base(
+create database graphsite;
+create table graphsite.ods_information_base(
     id varchar(64)  not null comment '主键唯一id',
     name  varchar(255) default null comment '名称',
     base_type varchar(20) default null comment '类别（枚举值-实体/关系）',
@@ -24,7 +22,7 @@ create table ods.ods_information_base(
     KEY idx_ods_information_base_incr (insr) using btree
 )ENGINE=InnoDB,DEFAULT CHARSET=utf8mb4 COMMENT='基本信息表';
 
-create table ods.ods_entity_person(
+create table graphsite.ods_entity_person(
     id varchar(64) not null comment '主键唯一id',
     name varchar(255) default null comment '名称',
     entity_type varchar(20) default null comment '实体类别（人物）',
@@ -58,7 +56,7 @@ create table ods.ods_entity_person(
 )ENGINE=InnoDB,DEFAULT CHARSET=utf8mb4 COMMENT='人物实体信息';
 
 
-create table ods.ods_entity_adrr(
+create table graphsite.ods_entity_adrr(
     id varchar(64) not null comment '主键唯一id',
     name varchar(255) default null comment '名称',
     entity_type varchar(20) default null comment '实体类别（地址）',
@@ -88,7 +86,7 @@ create table ods.ods_entity_adrr(
 )ENGINE=InnoDB,DEFAULT CHARSET=utf8mb4 COMMENT='地址实体信息';
 
 
-create table ods.ods_links_all(
+create table graphsite.ods_links_all(
     id varchar(64) not null comment '主键唯一id',
     name varchar(255) default null comment '名称',
     rel_type varchar(20) default null comment '关系类别（人-人/人-地址）',
