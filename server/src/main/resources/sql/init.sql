@@ -63,8 +63,8 @@ create table if not exists graph_site.ods_entity_person
 ) ENGINE = InnoDB,
   DEFAULT CHARSET = utf8mb4 COMMENT ='人物实体信息';
 
-drop table if exists graph_site.ods_entity_adrr;
-create table if not exists graph_site.ods_entity_adrr
+drop table if exists graph_site.ods_entity_addr;
+create table if not exists graph_site.ods_entity_addr
 (
     id            varchar(64) not null comment '主键唯一id',
     name          varchar(255) default null comment '名称',
@@ -127,3 +127,30 @@ create table if not exists graph_site.ods_links_all
     KEY idx_ods_links_all_incr (incr) using btree
 ) ENGINE = InnoDB,
   DEFAULT CHARSET = utf8mb4 COMMENT ='关系信息';
+
+
+drop table if exists graph_site.task_base_information;
+create table if not exists graph_site.task_base_information
+(
+    id           varchar(64) not null comment '主键唯一id',
+    name         archar(255) default null comment '名称',
+    desription   varchar(255)  default null comment '任务描述',
+    status       boolean  default null comment '任务状态',
+    schedule     varchar(20) default null comment '调度周期',
+    duty_user    varchar(20)  default null comment '负责人',
+    email        varchar(64)  default null comment '邮箱',
+    notice       boolean  default null comment '是否通知',
+    file_path    varchar(255)  default null comment '文件路劲'
+) ENGINE = InnoDB,
+DEFAULT CHARSET = utf8mb4 COMMENT ='任务基本信息';
+
+drop table if exists graph_site.task_status_information;
+create table if not exists graph_site.task_status_information
+(
+    id                      varchar(64) not null comment '主键唯一id',
+    task_id                 varchar(64) default null comment '任务id',
+    cur_time                varchar(255)  default null comment '当前时间',
+    status   boolean        default null comment '当前状态',
+    running varchar(255)    default null comment '运行信息'
+) ENGINE = InnoDB,
+DEFAULT CHARSET = utf8mb4 COMMENT ='任务状态信息';
