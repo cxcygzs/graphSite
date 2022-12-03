@@ -63,8 +63,8 @@ create table if not exists graph_site.ods_entity_person
 ) ENGINE = InnoDB,
   DEFAULT CHARSET = utf8mb4 COMMENT ='人物实体信息';
 
-drop table if exists graph_site.ods_entity_adrr;
-create table if not exists graph_site.ods_entity_adrr
+drop table if exists graph_site.ods_entity_addr;
+create table if not exists graph_site.ods_entity_addr
 (
     id            varchar(64) not null comment '主键唯一id',
     name          varchar(255) default null comment '名称',
@@ -92,8 +92,9 @@ create table if not exists graph_site.ods_entity_adrr
     primary key (id),
     unique key ods_entity_adrr_id (id) using btree,
     KEY idx_ods_entity_adrr_incr (incr) using btree
-) ENGINE = InnoDB,
-  DEFAULT CHARSET = utf8mb4 COMMENT ='地址实体信息';
+)
+    ENGINE = InnoDB,
+    DEFAULT CHARSET = utf8mb4 COMMENT ='地址实体信息';
 
 drop table if exists graph_site.ods_links_all;
 create table if not exists graph_site.ods_links_all
@@ -104,7 +105,7 @@ create table if not exists graph_site.ods_links_all
     start_entity_id   varchar(64)  default null comment '开始节点id',
     start_entity_name varchar(255) default null comment '开始节点名称',
     end_entity_id     varchar(64)  default null comment '结束节点id',
-    end_entity_name     varchar(64)  default null comment '结束节点名称',
+    end_entity_name   varchar(64)  default null comment '结束节点名称',
     occ_time          varchar(20)  default null comment '发生时间',
     other             longtext     default null comment '其他信息',
     alter_field_1     varchar(255) default null comment '备用字段',
