@@ -1,7 +1,7 @@
 package cn.graph.site;
 
 import cn.graph.site.entity.Person;
-import cn.graph.site.service.PersonService;
+import cn.graph.site.service.neo4j.PersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

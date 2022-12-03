@@ -1,7 +1,9 @@
-package cn.graph.site.mapper;
+package cn.graph.site.mapper.domain;
 
 import cn.graph.site.entity.domain.OdsEntityAddr;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
 * @author wangfeiyu
@@ -9,6 +11,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2022-12-03 11:29:11
 * @Entity generator.domain.OdsEntityAdrr
 */
+@Mapper
 public interface OdsEntityAddrMapper extends BaseMapper<OdsEntityAddr> {
 
 }

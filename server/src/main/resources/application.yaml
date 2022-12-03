@@ -6,3 +6,10 @@ spring:
     authentication:
       username: neo4j
       password: wfy
+  datasource:
+    url: jdbc:mysql://localhost:3306/graph_site
+    username: root
+    password: wfy
+logging:
+  level:
+    root: info
