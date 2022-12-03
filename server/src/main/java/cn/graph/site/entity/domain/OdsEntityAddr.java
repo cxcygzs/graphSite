@@ -1,12 +1,10 @@
 package cn.graph.site.entity.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,7 +14,7 @@ import java.util.Date;
  */
 @TableName(value ="ods_entity_adrr")
 @Data
-public class OdsEntityAdrr implements Serializable {
+public class OdsEntityAddr implements Serializable {
     /**
      * 主键唯一id
      */
