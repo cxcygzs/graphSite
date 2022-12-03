@@ -1,5 +1,8 @@
 package cn.graph.site.entity;
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.util.ObjectUtil;
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
@@ -15,7 +18,7 @@ import java.util.Set;
 @Data
 public class Person {
     @Id
-    @GeneratedValue(generatorClass= GeneratedValue.InternalIdGenerator.class)
+    @GeneratedValue
     private Long id;
 
     private String name;
@@ -28,8 +31,8 @@ public class Person {
     public Set<Person> teammates;
 
     public void worksWith(Person person) {
-        if (teammates == null) {
-            teammates = new HashSet<>();
+        if (ObjectUtil.isNull(teammates)){
+            teammates = CollectionUtil.newHashSet();
         }
         teammates.add(person);
     }
