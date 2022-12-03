@@ -1,6 +1,5 @@
 package cn.graph.site;
 
-import cn.graph.site.entity.domain.OdsEntityAddr;
 import cn.graph.site.entity.neo4j.entity.Person;
 import cn.graph.site.entity.neo4j.relationship.Husband;
 import cn.graph.site.service.neo4j.PersonService;
@@ -50,7 +49,8 @@ public class SiteApplication {
             personService.save(a);
             personService.save(b);
 
-            log.info("husband关系对应的节点是 {}", personService.findAllByHusbandName(ab.getName()).toString());
+            log.info("husband关系对应的节点是 {}", personService.findAllByHusbandLabel(ab.getLabel()).toString());
+            log.info("husband关系对应的节点是 {}", personService.findAllByHusbandPersonName("b").toString());
 
         };
     }

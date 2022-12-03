@@ -14,5 +14,7 @@ public interface PersonService extends Neo4jRepository<Person, String> {
     Person findByName(String name);
 
 
-    List<Person> findAllByHusbandName(String name);
+    List<Person> findAllByHusbandLabel(String name);
+
+    List<Person> findAllByHusbandPersonName(String name);
 }
