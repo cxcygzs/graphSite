@@ -1,7 +1,7 @@
 package cn.graph.site;
 
 import cn.graph.site.entity.neo4j.entity.Person;
-import cn.graph.site.entity.neo4j.relationship.Husband;
+import cn.graph.site.entity.neo4j.relationship.people_to_people.Husband;
 import cn.graph.site.service.neo4j.PersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

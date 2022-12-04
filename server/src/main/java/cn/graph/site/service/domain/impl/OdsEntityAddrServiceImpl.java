@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 * @author wangfeiyu
 * @description 针对表【ods_entity_adrr(地址实体信息)】的数据库操作Service
 * @createDate 2022-12-03 11:29:11
+ * 继承MP
 */
 @Service
 public class OdsEntityAddrServiceImpl extends ServiceImpl<OdsEntityAddrMapper, OdsEntityAddr> implements OdsEntityAddrService {

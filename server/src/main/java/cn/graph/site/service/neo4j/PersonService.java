@@ -14,8 +14,9 @@ import java.util.List;
 public interface PersonService extends Neo4jRepository<Person, String>, CypherdslStatementExecutor<Person> {
     Person findByName(String name);
 
-
     List<Person> findAllByHusbandLabel(String name);
 
     List<Person> findAllByHusbandPersonName(String name);
+
+
 }
