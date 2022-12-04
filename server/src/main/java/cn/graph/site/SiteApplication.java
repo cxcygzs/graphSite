@@ -53,7 +53,9 @@ public class SiteApplication {
 
             log.info("husband关系对应的节点是 {}", personService.findAllByHusbandLabel(ab.getLabel()).toString());
             log.info("husband关系对应的节点是 {}", personService.findAllByHusbandPersonName("b").toString());
-
+            for (Person person : personService.findAllByHusbandPersonName("b")) {
+                System.out.println(person.getId());
+            }
         };
     }
 
