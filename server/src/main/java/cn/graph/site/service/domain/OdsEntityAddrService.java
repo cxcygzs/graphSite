@@ -9,5 +9,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2022-12-03 11:29:11
 */
 public interface OdsEntityAddrService extends IService<OdsEntityAddr> {
-
 }
