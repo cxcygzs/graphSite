@@ -37,7 +37,7 @@ create table if not exists graph_site.ods_entity_person
     age           int          default null comment '年龄',
     card_id       varchar(20)  default null comment '身份证号码',
     home          varchar(255) default null comment '家庭住址',
-    now_address   varchar(255) default null comment '家庭住址',
+    now_address   varchar(255) default null comment '现居地址',
     tel           varchar(20)  default null comment '手机号码',
     other         longtext     default null comment '其他信息',
     inspect_time  datetime     default null comment '检测时间',
