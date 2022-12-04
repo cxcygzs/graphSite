@@ -110,7 +110,7 @@ create table if not exists graph_site.ods_links_all
     end_entity_name   varchar(64)  default null comment '结束节点名称',
     end_property1     varchar(255) default null comment '结束节点属性1（人-身份证号/地址-空）',
     end_property2     varchar(255) default null comment '结束节点属性2（人-家庭地址/地址-空）',
-    occ_time          varchar(20)  default null comment '发生时间',
+    occ_time          longtext  default null comment '发生时间',
     other             longtext     default null comment '其他信息',
     alter_field_1     varchar(255) default null comment '备用字段',
     alter_field_2     varchar(255) default null comment '备用字段',
