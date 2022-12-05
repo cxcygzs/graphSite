@@ -18,13 +18,15 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Node("Person")
+@Node(value = "Person", primaryLabel = "Person")
 public class Person extends AbstractEntity {
     @Property
     private String name;
 
     @Property
     private Integer age;
+    @Property
+    private String sex;
 
     @Relationship(value = "Husband", direction = Relationship.Direction.OUTGOING)
     private Husband husband;

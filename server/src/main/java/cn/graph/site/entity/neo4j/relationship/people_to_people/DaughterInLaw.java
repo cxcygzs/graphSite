@@ -1,6 +1,7 @@
 package cn.graph.site.entity.neo4j.relationship.people_to_people;
 
 
+import cn.graph.site.entity.neo4j.AbstractRelationship;
 import cn.graph.site.entity.neo4j.entity.Person;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +16,7 @@ import org.springframework.data.neo4j.core.schema.TargetNode;
 @RelationshipProperties
 @Data
 @EqualsAndHashCode(of = {"label"}, callSuper = false)
-public class DaughterInLaw {
+public class DaughterInLaw  extends AbstractRelationship {
     @TargetNode
     private Person person;
 

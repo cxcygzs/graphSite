@@ -30,15 +30,18 @@ public class OdsEntityPersonServiceImpl extends ServiceImpl<OdsEntityPersonMappe
     @Override
     @Scheduled(cron = "*/10 * * * * ?")
     public void syncNeo4j() {
-//        List<OdsEntityPerson> list = this.list();
-//        if (ObjectUtil.isEmpty(list)) {
-//            return;
-//        }
-//        for (OdsEntityPerson odsEntityPerson : list) {
-//            Person person = Person.builder().name(odsEntityPerson.getName())
-//                    .age(odsEntityPerson.getAge()).build();
-//            personService.save(person);
-//        }
+        List<OdsEntityPerson> list = this.list();
+        if (ObjectUtil.isEmpty(list)) {
+            return;
+        }
+        for (OdsEntityPerson odsEntityPerson : list) {
+            Person person = Person.builder()
+                    .name(odsEntityPerson.getName())
+                    .sex(odsEntityPerson.getSex())
+                    .age(odsEntityPerson.getAge()).build();
+            person.setId(odsEntityPerson.getId());
+            personService.save(person);
+        }
         log.info("sync -> ");
     }
 }

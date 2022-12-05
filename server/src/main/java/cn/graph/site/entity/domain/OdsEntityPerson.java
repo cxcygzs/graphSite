@@ -6,13 +6,17 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 人物实体信息
  * {@code @TableName} ods_entity_person
  */
 @TableName(value ="ods_entity_person")
+@NoArgsConstructor
 @Data
 public class OdsEntityPerson implements Serializable {
     /**
@@ -69,52 +73,12 @@ public class OdsEntityPerson implements Serializable {
     /**
      * 检测时间
      */
-    private Date inspectTime;
+    private String inspectTime;
 
     /**
      * 状态
      */
     private String caseStatus;
-
-    /**
-     * 备用字段
-     */
-    private String alterField1;
-
-    /**
-     * 备用字段
-     */
-    private String alterField2;
-
-    /**
-     * 备用字段
-     */
-    private String alterField3;
-
-    /**
-     * 备用字段
-     */
-    private String alterField4;
-
-    /**
-     * 备用字段
-     */
-    private String alterField5;
-
-    /**
-     * 备用字段
-     */
-    private String alterField6;
-
-    /**
-     * 备用字段
-     */
-    private String alterField7;
-
-    /**
-     * 备用字段
-     */
-    private String alterField8;
 
     /**
      * 数据来源

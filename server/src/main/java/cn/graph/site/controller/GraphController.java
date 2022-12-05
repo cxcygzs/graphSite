@@ -3,11 +3,10 @@ package cn.graph.site.controller;
 import cn.graph.site.entity.neo4j.entity.Person;
 import cn.graph.site.service.neo4j.PersonService;
 import org.neo4j.cypherdsl.core.*;
+import org.neo4j.driver.Driver;
+import org.neo4j.driver.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -20,12 +19,15 @@ import java.util.Collection;
 public class GraphController {
     @Autowired
     PersonService personService;
+    @Autowired
+    Driver driver;
 
     @GetMapping("/test")
     public Collection<Person> test() {
         Node a = Cypher.node("Person");
         Node b = Cypher.node("Person");
         Relationship relationship = a.relationshipBetween(b);
+
         ResultStatement statement = Cypher.match(relationship).returning(a.getRequiredSymbolicName(),
                 Functions.collect(relationship),
                 Functions.collect(b)).build();
